@@ -70,7 +70,7 @@ javac -version
 echo $env:JAVA_HOME
 ```
 
-### Linux / macOS
+### Para Linux / macOS
 
 ```bash
 java -version
@@ -86,14 +86,14 @@ echo $JAVA_HOME
 
 No necesitas instalar bases de datos ni correr Docker. La aplicacion guarda los datos en memoria mientras este abierta.
 
-#### Windows:
+#### Para Windows
 
 ```cmd
 cd delivery-system
 mvnw.cmd javafx:run -Pmemory
 ```
 
-#### Linux / macOS:
+#### Y para Linux / macOS
 
 ```bash
 cd delivery-system
@@ -101,6 +101,7 @@ cd delivery-system
 ```
 
 En la barra de navegacion vas a ver dos botones:
+
 - **Users**: modulo completamente funcional para que interactues con el y veas como responde la UI ante validaciones y errores.
 - **Catalog**: tu punto de partida. Actualmente muestra una vista placeholder que vas a reemplazar a medida que construyas tus pantallas.
 
@@ -120,19 +121,22 @@ Cuando tengas lista la persistencia JPA y quieras comprobar que las migraciones 
 
 2. Ejecuta la aplicacion indicando que use el perfil JPA:
 
-   #### Windows (PowerShell):
+   #### Windows (PowerShell)
+
    ```powershell
    $env:DELIVERY_PERSISTENCE_TYPE="jpa"
    mvnw.cmd javafx:run
    ```
 
-   #### Windows (CMD):
+   #### Windows (CMD)
+
    ```cmd
    set DELIVERY_PERSISTENCE_TYPE=jpa
    mvnw.cmd javafx:run
    ```
 
-   #### Linux / macOS:
+   #### For Linux / macOS
+
    ```bash
    DELIVERY_PERSISTENCE_TYPE=jpa ./mvnw javafx:run
    ```
@@ -150,7 +154,7 @@ Cuando tengas lista la persistencia JPA y quieras comprobar que las migraciones 
 
 Durante la sesion vamos a construir el modulo juntos, avanzando de adentro hacia afuera y respetando cada capa de la arquitectura:
 
-```
+``` bash
 org.jala.edu.catalog
 ├── domain/                               # 1. Reglas puras de negocio (Java puro, sin dependencias)
 │   ├── model/ (Product, ProductId, Price, Stock)
@@ -169,7 +173,7 @@ org.jala.edu.catalog
     └── config/                           # CatalogModuleConfiguration, CatalogUiConfiguration
 ```
 
-### Pasos sugeridos:
+### Pasos sugeridos
 
 1. **Disena el dominio**: Crea la entidad `Product` heredando de `BaseModel<ProductId>`. Modela los atributos principales (nombre, descripcion, precio, stock, estado) y protege los invariantes con Value Objects y excepciones de dominio.
 2. **Define los puertos y casos de uso**: Declara las operaciones que necesita tu modulo en `port/in` y la interfaz del repositorio en `port/out`. Implementa cada caso de uso con su test unitario correspondiente.
