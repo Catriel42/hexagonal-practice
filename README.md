@@ -4,6 +4,8 @@ Esta es una version simplificada del proyecto principal (capstone), preparada es
 
 Elimine intencionalmente los modulos mas complejos (`order-module`, `delivery-module` y `payment-module`) para quitar ruido del medio. El objetivo de este laboratorio es puramente didactico y lo vamos a desarrollar juntos en una sesion en vivo: `user-module` sera nuestro espejo y guia de referencia. Nuestra tarea sera trasladar paso a paso todo lo que ya conocemos de `user-module` hacia `catalog-module`, replicando esa misma disciplina de diseno, separacion de responsabilidades y arquitectura hexagonal en el contexto de un catalogo de productos.
 
+Para seguir el paso a paso detallado de cada capa, consulta la [Guia Paso a Paso de Catalogo](GUIA_PASO_A_PASO_CATALOGO.md), estructurada sobre el [diagrama de Arquitectura Explicita](diagram.jpg) de Herberto Graca.
+
 ---
 
 ## Comandos rapidos para iniciar
