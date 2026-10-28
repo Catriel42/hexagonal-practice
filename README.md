@@ -10,8 +10,23 @@ Elimine intencionalmente los modulos mas complejos (`order-module`, `delivery-mo
 
 Antes de comenzar a programar, asegurate de compilar e instalar los modulos en tu repositorio local de Maven (`~/.m2`):
 
+### Windows (PowerShell o CMD)
+
+```cmd
+rem 1. Compilar e instalar en orden de dependencias
+cd core-module && mvnw.cmd install -DskipTests
+cd ..\user-module && mvnw.cmd install -DskipTests
+cd ..\catalog-module && mvnw.cmd install -DskipTests
+
+rem 2. Ejecutar la aplicacion en modo memoria (sin necesidad de base de datos)
+cd ..\delivery-system
+mvnw.cmd javafx:run -Pmemory
+```
+
+### Linux / macOS
+
 ```bash
-# 1. Dar permisos de ejecucion a los wrappers de Maven (Linux / macOS)
+# 1. Dar permisos de ejecucion a los wrappers de Maven
 chmod +x core-module/mvnw user-module/mvnw catalog-module/mvnw delivery-system/mvnw
 
 # 2. Compilar e instalar en orden de dependencias
@@ -23,8 +38,6 @@ cd ../catalog-module && ./mvnw install -DskipTests
 cd ../delivery-system
 ./mvnw javafx:run -Pmemory
 ```
-
-> Si estas en Windows, usa `mvnw.cmd` en lugar de `./mvnw`.
 
 ---
 
@@ -47,6 +60,16 @@ Vas a encontrar 4 carpetas en el repositorio:
 
 Verifica que tu terminal reconozca el compilador y la variable `JAVA_HOME`:
 
+### Windows
+
+```powershell
+java -version
+javac -version
+echo $env:JAVA_HOME
+```
+
+### Linux / macOS
+
 ```bash
 java -version
 javac -version
@@ -59,7 +82,16 @@ echo $JAVA_HOME
 
 ### 1. Modo en memoria (Recomendado para el desarrollo diario)
 
-No necesitas instalar bases de datos ni correr Docker. La aplicacion guarda los datos en memoria mientras este abierta:
+No necesitas instalar bases de datos ni correr Docker. La aplicacion guarda los datos en memoria mientras este abierta.
+
+#### Windows:
+
+```cmd
+cd delivery-system
+mvnw.cmd javafx:run -Pmemory
+```
+
+#### Linux / macOS:
 
 ```bash
 cd delivery-system
@@ -86,20 +118,22 @@ Cuando tengas lista la persistencia JPA y quieras comprobar que las migraciones 
 
 2. Ejecuta la aplicacion indicando que use el perfil JPA:
 
-   - **Linux / macOS:**
-     ```bash
-     DELIVERY_PERSISTENCE_TYPE=jpa ./mvnw javafx:run
-     ```
-   - **Windows PowerShell:**
-     ```powershell
-     $env:DELIVERY_PERSISTENCE_TYPE="jpa"
-     mvnw.cmd javafx:run
-     ```
-   - **Windows CMD:**
-     ```cmd
-     set DELIVERY_PERSISTENCE_TYPE=jpa
-     mvnw.cmd javafx:run
-     ```
+   #### Windows (PowerShell):
+   ```powershell
+   $env:DELIVERY_PERSISTENCE_TYPE="jpa"
+   mvnw.cmd javafx:run
+   ```
+
+   #### Windows (CMD):
+   ```cmd
+   set DELIVERY_PERSISTENCE_TYPE=jpa
+   mvnw.cmd javafx:run
+   ```
+
+   #### Linux / macOS:
+   ```bash
+   DELIVERY_PERSISTENCE_TYPE=jpa ./mvnw javafx:run
+   ```
 
 3. Para detener el contenedor:
 
