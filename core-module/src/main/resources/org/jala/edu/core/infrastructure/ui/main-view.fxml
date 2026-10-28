@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane fx:id="root"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.jala.edu.core.infrastructure.ui.MainViewController">
+    <top>
+        <!-- One button per module is added by MainViewController -->
+        <HBox fx:id="navigationBar" styleClass="nav-bar">
+            <Label styleClass="app-title" text="Delivery System"/>
+        </HBox>
+    </top>
+    <center>
+        <Label styleClass="welcome" text="Welcome to Delivery System. Choose a module above."/>
+    </center>
+</BorderPane>

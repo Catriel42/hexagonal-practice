@@ -1,0 +1,22 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+
+### VS Code ###
+.vscode/
+
+### OS ###
+.DS_Store
+Thumbs.db
+
+### Maven local repository cache (used by CI) ###
+.m2/
+
+### Private professor context (AI session notes) ###
+Agentic_Capstone/
+
+### Course documents (kept out of the repository) ###
+docs/

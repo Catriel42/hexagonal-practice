@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>4.1.0</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>org.jala.edu</groupId>
+    <artifactId>delivery-system</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>delivery-system</name>
+    <description>Delivery system desktop application: assembles the modules and starts the JavaFX UI</description>
+
+    <properties>
+        <java.version>25</java.version>
+        <javafx.version>25</javafx.version>
+        <javafx-maven-plugin.version>0.0.8</javafx-maven-plugin.version>
+        <!-- Install the module repositories first (./mvnw install in each one) -->
+        <core-module.version>0.0.1-SNAPSHOT</core-module.version>
+        <user-module.version>0.0.1-SNAPSHOT</user-module.version>
+        <catalog-module.version>0.0.1-SNAPSHOT</catalog-module.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jala.edu</groupId>
+            <artifactId>core-module</artifactId>
+            <version>${core-module.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jala.edu</groupId>
+            <artifactId>user-module</artifactId>
+            <version>${user-module.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jala.edu</groupId>
+            <artifactId>catalog-module</artifactId>
+            <version>${catalog-module.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-flyway</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-mysql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>delivery-system</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!-- ./mvnw javafx:run -->
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>${javafx-maven-plugin.version}</version>
+                <configuration>
+                    <mainClass>org.jala.edu.DeliverySystemApplication</mainClass>
+                    <options>
+                        <option>--enable-native-access=javafx.graphics</option>
+                    </options>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <!-- ./mvnw javafx:run -Pmemory : run without a database (in-memory adapters) -->
+        <profile>
+            <id>memory</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.openjfx</groupId>
+                        <artifactId>javafx-maven-plugin</artifactId>
+                        <configuration>
+                            <options combine.children="append">
+                                <option>-Ddelivery.persistence.type=memory</option>
+                            </options>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

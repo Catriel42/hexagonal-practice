@@ -1,0 +1,116 @@
+.root {
+    -fx-font-size: 14px;
+    -fx-accent: #2563eb;
+    -fx-focus-color: #2563eb;
+}
+
+.nav-bar {
+    -fx-background-color: #1f2937;
+    -fx-padding: 8 16;
+    -fx-spacing: 6;
+    -fx-alignment: center-left;
+}
+
+.app-title {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 20 0 0;
+}
+
+.button.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #d1d5db;
+    -fx-padding: 6 14;
+    -fx-background-radius: 6;
+}
+
+.button.nav-button:hover {
+    -fx-background-color: #374151;
+    -fx-text-fill: white;
+}
+
+.button.nav-button.active {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+}
+
+.module-actions {
+    -fx-spacing: 12;
+}
+
+.button.module-action {
+    -fx-pref-width: 180;
+    -fx-pref-height: 64;
+    -fx-font-size: 15px;
+}
+
+.welcome {
+    -fx-text-fill: #6b7280;
+}
+
+.subtitle {
+    -fx-font-size: 15px;
+    -fx-text-fill: #374151;
+}
+
+.placeholder {
+    -fx-text-fill: #6b7280;
+    -fx-font-style: italic;
+}
+
+.page {
+    -fx-padding: 24;
+    -fx-spacing: 16;
+}
+
+.page-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.form {
+    -fx-hgap: 12;
+    -fx-vgap: 12;
+}
+
+.button.primary {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 6 20;
+}
+
+.button.primary:hover {
+    -fx-background-color: #1d4ed8;
+}
+
+.button.danger {
+    -fx-text-fill: #b91c1c;
+}
+
+.actions {
+    -fx-spacing: 8;
+}
+
+.read-only {
+    -fx-text-fill: #374151;
+    -fx-font-weight: bold;
+}
+
+.toolbar {
+    -fx-alignment: center-left;
+    -fx-spacing: 12;
+}
+
+.message.info {
+    -fx-text-fill: #6b7280;
+}
+
+.message.success {
+    -fx-text-fill: #15803d;
+}
+
+.message.error {
+    -fx-text-fill: #b91c1c;
+}

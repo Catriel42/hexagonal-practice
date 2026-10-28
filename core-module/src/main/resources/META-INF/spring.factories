@@ -1,0 +1,2 @@
+org.springframework.boot.EnvironmentPostProcessor=\
+org.jala.edu.core.infrastructure.config.PersistenceTypeEnvironmentPostProcessor

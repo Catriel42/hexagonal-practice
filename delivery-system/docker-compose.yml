@@ -1,0 +1,35 @@
+# Local MySQL for the delivery-system application.
+#
+# Optional: the application runs in memory by default
+# (delivery.persistence.type=memory in src/main/resources/application.yml).
+# Use this file only when you want to test against a real database.
+#
+# Usage (identical on Windows, macOS and Linux):
+#   docker compose up -d      # start MySQL in the background
+#   docker compose ps         # check status (wait for "healthy")
+#   docker compose down       # stop MySQL, data is kept in the volume
+#   docker compose down -v    # stop MySQL and delete all data
+
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: delivery-system-mysql
+    restart: unless-stopped
+    environment:
+      # These values match the defaults in src/main/resources/application.yml
+      MYSQL_DATABASE: delivery_system
+      MYSQL_USER: delivery
+      MYSQL_PASSWORD: delivery
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - delivery-system-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-proot"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  delivery-system-mysql-data:

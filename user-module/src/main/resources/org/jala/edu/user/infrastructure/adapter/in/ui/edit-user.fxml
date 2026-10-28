@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox styleClass="page" prefWidth="480"
+      xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.jala.edu.user.infrastructure.adapter.in.ui.EditUserController">
+
+    <Label styleClass="page-title" text="Edit user"/>
+
+    <GridPane fx:id="form" styleClass="form">
+        <columnConstraints>
+            <ColumnConstraints minWidth="120"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <Label text="Email" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <Label fx:id="emailLabel" styleClass="read-only" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="First name *" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="firstNameField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Last name *" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="lastNameField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Phone" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="phoneField" promptText="Optional" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Role *" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="roleComboBox" maxWidth="Infinity" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+        <Label text="Status *" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="statusComboBox" maxWidth="Infinity" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+        <HBox styleClass="actions" GridPane.rowIndex="6" GridPane.columnIndex="1">
+            <Button fx:id="saveButton" styleClass="primary" text="Save" defaultButton="true" onAction="#onSave"/>
+            <Button text="Cancel" cancelButton="true" onAction="#onCancel"/>
+        </HBox>
+    </GridPane>
+
+    <Label fx:id="messageLabel" styleClass="message, error" wrapText="true"/>
+</VBox>
