@@ -1,8 +1,8 @@
 # Practica de Arquitectura Hexagonal — Modular Monolith
 
-Esta es una version simplificada del proyecto principal (capstone), preparada especificamente para que trabajes de forma enfocada y sin distracciones.
+Esta es una version simplificada del proyecto principal (capstone), preparada especificamente para que trabajemos de forma enfocada y sin distracciones.
 
-Elimine intencionalmente los modulos mas complejos (`order-module`, `delivery-module` y `payment-module`) para quitar ruido del medio. El objetivo de este laboratorio es puramente didactico: quiero que tomes todo lo que ya analizamos y conoces de `user-module` y lo traslades paso a paso a `catalog-module`. `user-module` es tu espejo y tu guia de referencia; tu tarea es replicar esa misma disciplina de diseno, separacion de responsabilidades y arquitectura hexagonal en el contexto de un catalogo de productos.
+Elimine intencionalmente los modulos mas complejos (`order-module`, `delivery-module` y `payment-module`) para quitar ruido del medio. El objetivo de este laboratorio es puramente didactico y lo vamos a desarrollar juntos en una sesion en vivo: `user-module` sera nuestro espejo y guia de referencia. Nuestra tarea sera trasladar paso a paso todo lo que ya conocemos de `user-module` hacia `catalog-module`, replicando esa misma disciplina de diseno, separacion de responsabilidades y arquitectura hexagonal en el contexto de un catalogo de productos.
 
 ---
 
@@ -144,9 +144,9 @@ Cuando tengas lista la persistencia JPA y quieras comprobar que las migraciones 
 
 ---
 
-## Hoja de ruta recomendada para `catalog-module`
+## Hoja de ruta para nuestra sesion en vivo (`catalog-module`)
 
-No empieces tirando botones en la interfaz ni configurando base de datos. Avanza de adentro hacia afuera, respetando la arquitectura:
+Durante la sesion vamos a construir el modulo juntos, avanzando de adentro hacia afuera y respetando cada capa de la arquitectura:
 
 ```
 org.jala.edu.catalog
